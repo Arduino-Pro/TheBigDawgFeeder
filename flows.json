@@ -1,1 +1,2805 @@
-[]
+[
+    {
+        "id": "56d2f109090e75bc",
+        "type": "tab",
+        "label": "Feed Control",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "0c1af66d0bae814e",
+        "type": "tab",
+        "label": "UI",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9c7a13b8e1f47d0a",
+        "type": "mqtt-broker",
+        "name": "nextcloud",
+        "broker": "192.168.101.200",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "10",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "bcde62b3b58c4a8c",
+        "type": "ui_tab",
+        "name": "Dogs",
+        "icon": "mi-pets",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f633f57f7a0bb891",
+        "type": "ui_group",
+        "name": "Dog 4",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "6643e18fa3f89e74",
+        "type": "ui_group",
+        "name": "Dog 1",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "b7c7f956bd07f1a6",
+        "type": "ui_group",
+        "name": "Dog 2",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "09481e8dd14377b4",
+        "type": "ui_group",
+        "name": "Dog 3",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "3e3f35b6705b6738",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "mi-home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8e0e5b3c0d108c9f",
+        "type": "ui_group",
+        "name": "Snacks",
+        "tab": "3e3f35b6705b6738",
+        "order": 1,
+        "disp": true,
+        "width": 25,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0ed61a702af3a0bb",
+        "type": "ui_group",
+        "name": "Dog 5",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 5,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "73cbe0669fe586b4",
+        "type": "ui_group",
+        "name": "Dog 6",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 6,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "4366902f702eb32f",
+        "type": "ui_group",
+        "name": "Dog 7",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 7,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "ec9c542ef084b1da",
+        "type": "ui_group",
+        "name": "Dog 8",
+        "tab": "bcde62b3b58c4a8c",
+        "order": 8,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "bb7826648858ae1c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3154f8b798a4d693",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5e02b3e8121d4ee2",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "3154f8b798a4d693"
+            ]
+        ]
+    },
+    {
+        "id": "b7b2003cb2cb235c",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "72d6229e8457ac66"
+            ]
+        ]
+    },
+    {
+        "id": "3e6c1fb80c771b8e",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog1data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog1data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "b7b2003cb2cb235c"
+            ]
+        ]
+    },
+    {
+        "id": "72d6229e8457ac66",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "f0c56f33be49752b"
+            ]
+        ]
+    },
+    {
+        "id": "f0c56f33be49752b",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 300,
+        "wires": [
+            [
+                "5e02b3e8121d4ee2"
+            ]
+        ]
+    },
+    {
+        "id": "d5b3a4fdaebfe1a2",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d310ffd406579e09",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "d5b3a4fdaebfe1a2"
+            ]
+        ]
+    },
+    {
+        "id": "8d20c55018a0c82a",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "9a98a0d99dc182ba"
+            ]
+        ]
+    },
+    {
+        "id": "7e5b2bb40f74709f",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog2data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog2data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "8d20c55018a0c82a"
+            ]
+        ]
+    },
+    {
+        "id": "9a98a0d99dc182ba",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "67c34a1573b929ad"
+            ]
+        ]
+    },
+    {
+        "id": "67c34a1573b929ad",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "d310ffd406579e09"
+            ]
+        ]
+    },
+    {
+        "id": "20e1d4b9d77a1016",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b3ad9b92dd07f9e4",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 460,
+        "wires": [
+            [
+                "20e1d4b9d77a1016"
+            ]
+        ]
+    },
+    {
+        "id": "57afd50e672f7b67",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 460,
+        "wires": [
+            [
+                "9fe6142e1ee36009"
+            ]
+        ]
+    },
+    {
+        "id": "9d625e1c5ca8d0c4",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog3data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog3data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "57afd50e672f7b67"
+            ]
+        ]
+    },
+    {
+        "id": "9fe6142e1ee36009",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 500,
+        "wires": [
+            [
+                "5620c5e9fa443395"
+            ]
+        ]
+    },
+    {
+        "id": "5620c5e9fa443395",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 540,
+        "wires": [
+            [
+                "b3ad9b92dd07f9e4"
+            ]
+        ]
+    },
+    {
+        "id": "905e1728b6f1216f",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1ac743048c955758",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "905e1728b6f1216f"
+            ]
+        ]
+    },
+    {
+        "id": "5e773fdb8ffe473f",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 580,
+        "wires": [
+            [
+                "41ab7d2e8e239c84"
+            ]
+        ]
+    },
+    {
+        "id": "3cdb064178b4d3a8",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog4data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog4data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "5e773fdb8ffe473f"
+            ]
+        ]
+    },
+    {
+        "id": "41ab7d2e8e239c84",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 620,
+        "wires": [
+            [
+                "6b0f213733e63116"
+            ]
+        ]
+    },
+    {
+        "id": "6b0f213733e63116",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 660,
+        "wires": [
+            [
+                "1ac743048c955758"
+            ]
+        ]
+    },
+    {
+        "id": "b233664de878fcc2",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "dfc6cf7b44a1fdf7",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 700,
+        "wires": [
+            [
+                "b233664de878fcc2"
+            ]
+        ]
+    },
+    {
+        "id": "d79f142752a2e64f",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 700,
+        "wires": [
+            [
+                "06e682ec7f8dc6c2"
+            ]
+        ]
+    },
+    {
+        "id": "becd3befefacafae",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog5data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog5data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "d79f142752a2e64f"
+            ]
+        ]
+    },
+    {
+        "id": "06e682ec7f8dc6c2",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 740,
+        "wires": [
+            [
+                "92e3f68bc4e59a8d"
+            ]
+        ]
+    },
+    {
+        "id": "92e3f68bc4e59a8d",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 780,
+        "wires": [
+            [
+                "dfc6cf7b44a1fdf7"
+            ]
+        ]
+    },
+    {
+        "id": "e960a32929f00649",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "0435c23bc9dd32db",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 820,
+        "wires": [
+            [
+                "e960a32929f00649"
+            ]
+        ]
+    },
+    {
+        "id": "b8754b01275237f9",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 820,
+        "wires": [
+            [
+                "73452c8d5f0972a2"
+            ]
+        ]
+    },
+    {
+        "id": "8694f71ba0a2e2b3",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog6data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog6data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 820,
+        "wires": [
+            [
+                "b8754b01275237f9"
+            ]
+        ]
+    },
+    {
+        "id": "73452c8d5f0972a2",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 860,
+        "wires": [
+            [
+                "4eb89fdaa7c1ed72"
+            ]
+        ]
+    },
+    {
+        "id": "4eb89fdaa7c1ed72",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 900,
+        "wires": [
+            [
+                "0435c23bc9dd32db"
+            ]
+        ]
+    },
+    {
+        "id": "e8e446e53a508ac7",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "f536d50b176d2a9d",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 940,
+        "wires": [
+            [
+                "e8e446e53a508ac7"
+            ]
+        ]
+    },
+    {
+        "id": "89a7466f42417d22",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 940,
+        "wires": [
+            [
+                "187f186cc038c04c"
+            ]
+        ]
+    },
+    {
+        "id": "62185f07b7d2062b",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog7data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog7data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 940,
+        "wires": [
+            [
+                "89a7466f42417d22"
+            ]
+        ]
+    },
+    {
+        "id": "187f186cc038c04c",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 980,
+        "wires": [
+            [
+                "86e153c76b6c1f68"
+            ]
+        ]
+    },
+    {
+        "id": "86e153c76b6c1f68",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 1020,
+        "wires": [
+            [
+                "f536d50b176d2a9d"
+            ]
+        ]
+    },
+    {
+        "id": "961ce04331511b8d",
+        "type": "mqtt out",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 990,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "14bb0348bd320edf",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "var dogData = global.get(msg.dogID) || {};\ndogData.mealStates = dogData.mealStates || {};\nvar mealStates = dogData.mealStates;\nvar out = [];\n\nfunction handleMeal(mealName, timeKey, amountKey) {\n    var mealTime = msg[timeKey];\n\n    if (\n        mealTime.getHours() === msg.currentTime.getHours() &&\n        mealTime.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // Check if the meal was already served\n        if (mealStates[mealName] === true) {\n            // Reset the meal if time has passed\n            if (\n                msg.currentTime.getDay() > mealTime.getDay() ||\n                msg.currentTime.getHours() > mealTime.getHours() ||\n                msg.currentTime.getMinutes() > mealTime.getMinutes()\n            ) {\n                mealStates[mealName] = false;\n                global.set(msg.dogID, dogData);\n            } else {\n                return;\n            }\n        }\n\n        // Mark the meal as served\n        mealStates[mealName] = true;\n        global.set(msg.dogID, dogData);\n\n        // Create output message for this meal\n        out.push({\n            payload: {\n                dogName: msg.dogID,\n                meal: mealName,\n                amount: dogData[amountKey],\n                time: mealTime\n            }\n        });\n    }\n}\n\nhandleMeal(\"breakfast\", \"breakfast\", \"breakfastAmount\");\nhandleMeal(\"lunch\", \"lunch\", \"lunchAmount\");\nhandleMeal(\"dinner\", \"dinner\", \"dinnerAmount\");\n\nreturn out.length > 0 ? [out] : null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 1060,
+        "wires": [
+            [
+                "961ce04331511b8d"
+            ]
+        ]
+    },
+    {
+        "id": "f03b1ad3db529f99",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.breakfast",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "breakfast",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 1060,
+        "wires": [
+            [
+                "a1277bcfc2e85b72"
+            ]
+        ]
+    },
+    {
+        "id": "9c36954c7ee4d528",
+        "type": "inject",
+        "z": "56d2f109090e75bc",
+        "name": "",
+        "props": [
+            {
+                "p": "currentTime",
+                "v": "object",
+                "vt": "date"
+            },
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "dogID",
+                "v": "dog8data",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "dog8data",
+        "payloadType": "global",
+        "x": 110,
+        "y": 1060,
+        "wires": [
+            [
+                "f03b1ad3db529f99"
+            ]
+        ]
+    },
+    {
+        "id": "a1277bcfc2e85b72",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.lunch",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "lunch",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 1100,
+        "wires": [
+            [
+                "fa0dfb0f68de710b"
+            ]
+        ]
+    },
+    {
+        "id": "fa0dfb0f68de710b",
+        "type": "moment",
+        "z": "56d2f109090e75bc",
+        "name": "convertToDate",
+        "topic": "",
+        "input": "payload.dinner",
+        "inputType": "msg",
+        "inTz": "Africa/Johannesburg",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "date",
+        "locale": "C",
+        "output": "dinner",
+        "outputType": "msg",
+        "outTz": "Africa/Johannesburg",
+        "x": 400,
+        "y": 1140,
+        "wires": [
+            [
+                "14bb0348bd320edf"
+            ]
+        ]
+    },
+    {
+        "id": "e814423530e224f4",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 1",
+        "label": "",
+        "group": "6643e18fa3f89e74",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 1",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog1",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 40,
+        "wires": [
+            [
+                "ac36d46c7fef3cb0"
+            ]
+        ]
+    },
+    {
+        "id": "379aa4fdcf92992d",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 2",
+        "label": "",
+        "group": "b7c7f956bd07f1a6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 2",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog2",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "c8c45c25a3232410"
+            ]
+        ]
+    },
+    {
+        "id": "9c805c5f40c2d0c2",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 1",
+        "func": "msg.payload = global.get(\"dog1data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 40,
+        "wires": [
+            [
+                "e814423530e224f4"
+            ]
+        ]
+    },
+    {
+        "id": "8d4797e30728f28e",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 2",
+        "func": "msg.payload = global.get(\"dog2data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "379aa4fdcf92992d"
+            ]
+        ]
+    },
+    {
+        "id": "ac36d46c7fef3cb0",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 3",
+        "func": "global.set(\"dog1data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 40,
+        "wires": [
+            [
+                "e814423530e224f4"
+            ]
+        ]
+    },
+    {
+        "id": "c8c45c25a3232410",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 4",
+        "func": "global.set(\"dog2data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 80,
+        "wires": [
+            [
+                "379aa4fdcf92992d"
+            ]
+        ]
+    },
+    {
+        "id": "2bc1f402e342b9d5",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 60,
+        "wires": [
+            [
+                "9c805c5f40c2d0c2"
+            ]
+        ]
+    },
+    {
+        "id": "660594a0b9bb2649",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 100,
+        "wires": [
+            [
+                "8d4797e30728f28e"
+            ]
+        ]
+    },
+    {
+        "id": "a9f715ef364f5bf8",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 3",
+        "label": "",
+        "group": "09481e8dd14377b4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 3",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog3",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 120,
+        "wires": [
+            [
+                "d80488e506644d2c"
+            ]
+        ]
+    },
+    {
+        "id": "97bdef3e34125b08",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 4",
+        "label": "",
+        "group": "f633f57f7a0bb891",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 4",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog4",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "a61d2f0b1611f691"
+            ]
+        ]
+    },
+    {
+        "id": "fdacd740dbb7bf66",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 5",
+        "func": "msg.payload = global.get(\"dog3data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "a9f715ef364f5bf8"
+            ]
+        ]
+    },
+    {
+        "id": "a99b8c95d9337136",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 6",
+        "func": "msg.payload = global.get(\"dog4data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "97bdef3e34125b08"
+            ]
+        ]
+    },
+    {
+        "id": "d80488e506644d2c",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 7",
+        "func": "global.set(\"dog3data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 120,
+        "wires": [
+            [
+                "a9f715ef364f5bf8"
+            ]
+        ]
+    },
+    {
+        "id": "a61d2f0b1611f691",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 8",
+        "func": "global.set(\"dog4data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "97bdef3e34125b08"
+            ]
+        ]
+    },
+    {
+        "id": "d572da7dd87d66b2",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 140,
+        "wires": [
+            [
+                "fdacd740dbb7bf66"
+            ]
+        ]
+    },
+    {
+        "id": "460de58329f3939c",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 180,
+        "wires": [
+            [
+                "a99b8c95d9337136"
+            ]
+        ]
+    },
+    {
+        "id": "5d3d8ec86afdb7f0",
+        "type": "ui_dropdown",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select Dog",
+        "group": "8e0e5b3c0d108c9f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": true,
+        "options": [
+            {
+                "label": "Dog 1",
+                "value": "dog1data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 2",
+                "value": "dog2data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 3",
+                "value": "dog3data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 4",
+                "value": "dog4data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 5",
+                "value": "dog5data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 6",
+                "value": "dog6data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 7",
+                "value": "dog7data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 8",
+                "value": "dog8data",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "snacks",
+        "topicType": "msg",
+        "className": "",
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "633ca3ee8a722c8a"
+            ]
+        ]
+    },
+    {
+        "id": "c13851f6feab2ca8",
+        "type": "ui_button",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "group": "8e0e5b3c0d108c9f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Feed",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "feed",
+        "payloadType": "str",
+        "topic": "feed",
+        "topicType": "msg",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "788f0042997157e7"
+            ]
+        ]
+    },
+    {
+        "id": "198d6a47610d8be1",
+        "type": "ui_numeric",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "label": "Amount of food",
+        "tooltip": "",
+        "group": "8e0e5b3c0d108c9f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "snackAmount",
+        "topicType": "msg",
+        "format": "{{value}}g",
+        "min": "1",
+        "max": "200",
+        "step": "1",
+        "className": "",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "8dd6036e07e0bef1"
+            ]
+        ]
+    },
+    {
+        "id": "58c615ce8a61adf0",
+        "type": "mqtt out",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 130,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "788f0042997157e7",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 9",
+        "func": "\n\nif (msg.payload == \"feed\") {\n    msg.payload = {\n        \n        dogName: flow.get(\"dogsToFeed\"),\n        meal: \"snack\",\n\n        amount: flow.get(\"amount\"),\n        time: new Date()\n\n    };\n\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "58c615ce8a61adf0"
+            ]
+        ]
+    },
+    {
+        "id": "8dd6036e07e0bef1",
+        "type": "change",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "amount",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "c13851f6feab2ca8"
+            ]
+        ]
+    },
+    {
+        "id": "633ca3ee8a722c8a",
+        "type": "change",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dogsToFeed",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 460,
+        "wires": [
+            [
+                "198d6a47610d8be1"
+            ]
+        ]
+    },
+    {
+        "id": "4450bde2ca41b2e1",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 5",
+        "label": "",
+        "group": "0ed61a702af3a0bb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 5",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog5",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "8003dd2a5079b404"
+            ]
+        ]
+    },
+    {
+        "id": "38b3eb170ff6093e",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 6",
+        "label": "",
+        "group": "73cbe0669fe586b4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 2",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog6",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "2b3d6b1d1d6fca2a"
+            ]
+        ]
+    },
+    {
+        "id": "526f8a5d6a95586c",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 10",
+        "func": "msg.payload = global.get(\"dog5data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "4450bde2ca41b2e1"
+            ]
+        ]
+    },
+    {
+        "id": "1f05e2684b6db6f4",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 11",
+        "func": "msg.payload = global.get(\"dog6data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "38b3eb170ff6093e"
+            ]
+        ]
+    },
+    {
+        "id": "8003dd2a5079b404",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 12",
+        "func": "global.set(\"dog5data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "4450bde2ca41b2e1"
+            ]
+        ]
+    },
+    {
+        "id": "2b3d6b1d1d6fca2a",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 13",
+        "func": "global.set(\"dog6data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 240,
+        "wires": [
+            [
+                "38b3eb170ff6093e"
+            ]
+        ]
+    },
+    {
+        "id": "77d8b7560e5f3a4b",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 220,
+        "wires": [
+            [
+                "526f8a5d6a95586c"
+            ]
+        ]
+    },
+    {
+        "id": "91bf70061825840b",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 260,
+        "wires": [
+            [
+                "1f05e2684b6db6f4"
+            ]
+        ]
+    },
+    {
+        "id": "7c15b9eec504af78",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 7",
+        "label": "",
+        "group": "4366902f702eb32f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 7",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog7",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "744884d0fb772bb5"
+            ]
+        ]
+    },
+    {
+        "id": "42c2a36bf1d4b43b",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "Dog 8",
+        "label": "",
+        "group": "ec9c542ef084b1da",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name of Dog 8",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Time",
+                "value": "breakfast",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Breakfast Amount",
+                "value": "breakfastAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Time",
+                "value": "lunch",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Lunch Amount",
+                "value": "lunchAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Time",
+                "value": "dinner",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Dinner Amount",
+                "value": "dinnerAmount",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "breakfast": "",
+            "breakfastAmount": "",
+            "lunch": "",
+            "lunchAmount": "",
+            "dinner": "",
+            "dinnerAmount": ""
+        },
+        "payload": "",
+        "submit": "Save",
+        "cancel": "",
+        "topic": "dog8",
+        "topicType": "global",
+        "splitLayout": true,
+        "className": "Dog",
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "fd7224a7289ec162"
+            ]
+        ]
+    },
+    {
+        "id": "d873ddafe94ebb15",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 14",
+        "func": "msg.payload = global.get(\"dog7data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "7c15b9eec504af78"
+            ]
+        ]
+    },
+    {
+        "id": "2688b15264fd3fcb",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 15",
+        "func": "msg.payload = global.get(\"dog8data\") || {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "42c2a36bf1d4b43b"
+            ]
+        ]
+    },
+    {
+        "id": "744884d0fb772bb5",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 16",
+        "func": "global.set(\"dog7data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "7c15b9eec504af78"
+            ]
+        ]
+    },
+    {
+        "id": "fd7224a7289ec162",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 17",
+        "func": "global.set(\"dog8data\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 320,
+        "wires": [
+            [
+                "42c2a36bf1d4b43b"
+            ]
+        ]
+    },
+    {
+        "id": "39662a6b2638b476",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 300,
+        "wires": [
+            [
+                "d873ddafe94ebb15"
+            ]
+        ]
+    },
+    {
+        "id": "386dc14bdbeb9d7e",
+        "type": "ui_ui_control",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 340,
+        "wires": [
+            [
+                "2688b15264fd3fcb"
+            ]
+        ]
+    }
+]
