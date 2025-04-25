@@ -113,11 +113,4 @@ sudo systemctl restart mosquitto
 echo "🔧 Installing project dependencies..."
 npm install node-red-dashboard node-red-contrib-moment
 
-echo "🔧 Starting Node-RED..."
-USER=$(logname)
-sudo -u "$USER" bash -c node-red-start &
-
-echo "🔧 Enabling Node-RED to start on boot..."
-sudo systemctl enable nodered.service
-
 sudo reboot
