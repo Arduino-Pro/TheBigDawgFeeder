@@ -281,7 +281,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -304,7 +304,7 @@
         "topic": "",
         "input": "payload.breakfast",
         "inputType": "msg",
-        "inTz": "Africa/Johannesburg",
+        "inTz": "ETC/UTC",
         "adjAmount": 0,
         "adjType": "hours",
         "adjDir": "add",
@@ -312,7 +312,7 @@
         "locale": "C",
         "output": "breakfast",
         "outputType": "msg",
-        "outTz": "Africa/Johannesburg",
+        "outTz": "ETC/UTC",
         "x": 400,
         "y": 220,
         "wires": [
@@ -368,7 +368,7 @@
         "topic": "",
         "input": "payload.lunch",
         "inputType": "msg",
-        "inTz": "Africa/Johannesburg",
+        "inTz": "ETC/UTC",
         "adjAmount": 0,
         "adjType": "days",
         "adjDir": "add",
@@ -376,7 +376,7 @@
         "locale": "C",
         "output": "lunch",
         "outputType": "msg",
-        "outTz": "Africa/Johannesburg",
+        "outTz": "ETC/UTC",
         "x": 400,
         "y": 260,
         "wires": [
@@ -393,7 +393,7 @@
         "topic": "",
         "input": "payload.dinner",
         "inputType": "msg",
-        "inTz": "Africa/Johannesburg",
+        "inTz": "ETC/UTC",
         "adjAmount": 0,
         "adjType": "days",
         "adjDir": "add",
@@ -401,7 +401,7 @@
         "locale": "C",
         "output": "dinner",
         "outputType": "msg",
-        "outTz": "Africa/Johannesburg",
+        "outTz": "ETC/UTC",
         "x": 400,
         "y": 300,
         "wires": [
@@ -433,7 +433,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -585,7 +585,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -737,7 +737,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -889,7 +889,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -955,7 +955,7 @@
         ],
         "repeat": "5",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "0",
         "topic": "",
         "payload": "dog5data",
@@ -1041,7 +1041,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1107,7 +1107,7 @@
         ],
         "repeat": "5",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "0",
         "topic": "",
         "payload": "dog6data",
@@ -1193,7 +1193,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1259,7 +1259,7 @@
         ],
         "repeat": "5",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "0",
         "topic": "",
         "payload": "dog7data",
@@ -1345,7 +1345,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "// Initialize an array to hold messages for meals due at the current time\nvar messages = [];\n\n// Define the meals and their corresponding properties\nvar meals = [\n    { name: \"breakfast\", time: msg.breakfast, amountKey: \"breakfastAmount\" },\n    { name: \"lunch\", time: msg.lunch, amountKey: \"lunchAmount\" },\n    { name: \"dinner\", time: msg.dinner, amountKey: \"dinnerAmount\" }\n];\n\n// Retrieve the dog's mealStates from global context\nvar mealStates = global.get(msg.dogID + \".mealStates\") || {};\n\n// Iterate over each meal to check if it's due\nfor (var i = 0; i < meals.length; i++) {\n    var meal = meals[i];\n\n    // Check if the current time matches the meal time\n    if (\n        meal.time.getHours() === msg.currentTime.getHours() &&\n        meal.time.getMinutes() === msg.currentTime.getMinutes()\n    ) {\n        // If the meal has already been marked as given\n        if (mealStates[meal.name] === true) {\n            // Check if the current time is later than the scheduled meal time\n            if (\n                msg.currentTime.getHours() > meal.time.getHours() ||\n                msg.currentTime.getMinutes() > meal.time.getMinutes() ||\n                msg.currentTime.getDay() > meal.time.getDay()\n            ) {\n                // Reset the meal state to false\n                mealStates[meal.name] = false;\n                global.set(msg.dogID + \".mealStates\", mealStates);\n            } else {\n                // Skip processing this meal as it has already been given\n                continue;\n            }\n        }\n\n        // Prepare the payload for the meal\n        var payload = {\n            dogName: msg.dogID,\n            meal: meal.name,\n            amount: global.get(msg.dogID)[meal.amountKey],\n            time: meal.time\n        };\n\n        // Add the payload to the messages array\n        messages.push({ payload: payload });\n\n        // Mark the meal as given\n        mealStates[meal.name] = true;\n        global.set(msg.dogID + \".mealStates\", mealStates);\n    }\n}\n\n// If any meals are due, return the array of messages\nif (messages.length > 0) {\n    return [messages];\n}\n\n// If no meals are due, return null\nreturn null;\n",
+        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1411,7 +1411,7 @@
         ],
         "repeat": "5",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "0",
         "topic": "",
         "payload": "dog8data",
@@ -1734,7 +1734,8 @@
         "y": 60,
         "wires": [
             [
-                "9c805c5f40c2d0c2"
+                "9c805c5f40c2d0c2",
+                "e814423530e224f4"
             ]
         ]
     },
@@ -1748,7 +1749,8 @@
         "y": 100,
         "wires": [
             [
-                "8d4797e30728f28e"
+                "8d4797e30728f28e",
+                "379aa4fdcf92992d"
             ]
         ]
     },
@@ -2012,7 +2014,8 @@
         "y": 140,
         "wires": [
             [
-                "fdacd740dbb7bf66"
+                "fdacd740dbb7bf66",
+                "a9f715ef364f5bf8"
             ]
         ]
     },
@@ -2026,7 +2029,8 @@
         "y": 180,
         "wires": [
             [
-                "a99b8c95d9337136"
+                "a99b8c95d9337136",
+                "97bdef3e34125b08"
             ]
         ]
     },
@@ -2506,7 +2510,8 @@
         "y": 220,
         "wires": [
             [
-                "526f8a5d6a95586c"
+                "526f8a5d6a95586c",
+                "4450bde2ca41b2e1"
             ]
         ]
     },
@@ -2520,7 +2525,8 @@
         "y": 260,
         "wires": [
             [
-                "1f05e2684b6db6f4"
+                "1f05e2684b6db6f4",
+                "38b3eb170ff6093e"
             ]
         ]
     },
@@ -2784,7 +2790,8 @@
         "y": 300,
         "wires": [
             [
-                "d873ddafe94ebb15"
+                "d873ddafe94ebb15",
+                "7c15b9eec504af78"
             ]
         ]
     },
@@ -2798,7 +2805,8 @@
         "y": 340,
         "wires": [
             [
-                "2688b15264fd3fcb"
+                "2688b15264fd3fcb",
+                "42c2a36bf1d4b43b"
             ]
         ]
     }
