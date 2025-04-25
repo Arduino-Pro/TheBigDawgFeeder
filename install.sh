@@ -111,6 +111,6 @@ echo "🔧 Restarting Mosquitto to apply configuration..."
 sudo systemctl restart mosquitto
 
 echo "🔧 Installing project dependencies..."
-npm install node-red-dashboard node-red-contrib-moment
+sudo npm install node-red-dashboard node-red-contrib-moment
 
 sudo reboot
