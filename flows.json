@@ -166,18 +166,20 @@
         "id": "bb7826648858ae1c",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
                 "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "baseFont": "Palatino Linotype,Palatino,Book Antiqua,serif",
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -187,48 +189,48 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                    "value": "Palatino Linotype,Palatino,Book Antiqua,serif"
                 }
             },
             "angularTheme": {
@@ -259,6 +261,17 @@
         }
     },
     {
+        "id": "8d45388b437f394e",
+        "type": "ui_group",
+        "name": "Utilities",
+        "tab": "3e3f35b6705b6738",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "3154f8b798a4d693",
         "type": "mqtt out",
         "z": "56d2f109090e75bc",
@@ -275,26 +288,6 @@
         "x": 990,
         "y": 220,
         "wires": []
-    },
-    {
-        "id": "5e02b3e8121d4ee2",
-        "type": "function",
-        "z": "56d2f109090e75bc",
-        "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 220,
-        "wires": [
-            [
-                "3154f8b798a4d693"
-            ]
-        ]
     },
     {
         "id": "b7b2003cb2cb235c",
@@ -427,26 +420,6 @@
         "x": 990,
         "y": 340,
         "wires": []
-    },
-    {
-        "id": "d310ffd406579e09",
-        "type": "function",
-        "z": "56d2f109090e75bc",
-        "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 340,
-        "wires": [
-            [
-                "d5b3a4fdaebfe1a2"
-            ]
-        ]
     },
     {
         "id": "8d20c55018a0c82a",
@@ -585,7 +558,7 @@
         "type": "function",
         "z": "56d2f109090e75bc",
         "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -733,26 +706,6 @@
         "wires": []
     },
     {
-        "id": "1ac743048c955758",
-        "type": "function",
-        "z": "56d2f109090e75bc",
-        "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 580,
-        "wires": [
-            [
-                "905e1728b6f1216f"
-            ]
-        ]
-    },
-    {
         "id": "5e773fdb8ffe473f",
         "type": "moment",
         "z": "56d2f109090e75bc",
@@ -883,26 +836,6 @@
         "x": 990,
         "y": 700,
         "wires": []
-    },
-    {
-        "id": "dfc6cf7b44a1fdf7",
-        "type": "function",
-        "z": "56d2f109090e75bc",
-        "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 700,
-        "wires": [
-            [
-                "b233664de878fcc2"
-            ]
-        ]
     },
     {
         "id": "d79f142752a2e64f",
@@ -1037,26 +970,6 @@
         "wires": []
     },
     {
-        "id": "0435c23bc9dd32db",
-        "type": "function",
-        "z": "56d2f109090e75bc",
-        "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 820,
-        "wires": [
-            [
-                "e960a32929f00649"
-            ]
-        ]
-    },
-    {
         "id": "b8754b01275237f9",
         "type": "moment",
         "z": "56d2f109090e75bc",
@@ -1187,26 +1100,6 @@
         "x": 990,
         "y": 940,
         "wires": []
-    },
-    {
-        "id": "f536d50b176d2a9d",
-        "type": "function",
-        "z": "56d2f109090e75bc",
-        "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 940,
-        "wires": [
-            [
-                "e8e446e53a508ac7"
-            ]
-        ]
     },
     {
         "id": "89a7466f42417d22",
@@ -1341,26 +1234,6 @@
         "wires": []
     },
     {
-        "id": "14bb0348bd320edf",
-        "type": "function",
-        "z": "56d2f109090e75bc",
-        "name": "checkFoodDog",
-        "func": "function handleMeal(mealName) {\n    var now = msg.currentTime;\n    var mealTime = msg[mealName];\n\n    var dog = global.get(msg.dogID) || {};\n    dog.mealStates = dog.mealStates || {};\n\n    if (\n        now.getHours() === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        if (dog.mealStates[mealName] === true) {\n            return null;\n        }\n\n        msg.payload = {\n            dogName: msg.dogID,\n            meal: mealName,\n            amount: dog[mealName + \"Amount\"],\n            time: mealTime\n        };\n\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n        return msg;\n    }\n\n    if (\n        dog.mealStates[mealName] === true &&\n        (\n            now.getDay() > mealTime.getDay() ||\n            now.getHours() > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\nreturn handleMeal(\"breakfast\") || handleMeal(\"lunch\") || handleMeal(\"dinner\");\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 1060,
-        "wires": [
-            [
-                "961ce04331511b8d"
-            ]
-        ]
-    },
-    {
         "id": "f03b1ad3db529f99",
         "type": "moment",
         "z": "56d2f109090e75bc",
@@ -1471,6 +1344,146 @@
         "wires": [
             [
                 "14bb0348bd320edf"
+            ]
+        ]
+    },
+    {
+        "id": "14bb0348bd320edf",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 1060,
+        "wires": [
+            [
+                "961ce04331511b8d"
+            ]
+        ]
+    },
+    {
+        "id": "f536d50b176d2a9d",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 940,
+        "wires": [
+            [
+                "e8e446e53a508ac7"
+            ]
+        ]
+    },
+    {
+        "id": "0435c23bc9dd32db",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 820,
+        "wires": [
+            [
+                "e960a32929f00649"
+            ]
+        ]
+    },
+    {
+        "id": "dfc6cf7b44a1fdf7",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 700,
+        "wires": [
+            [
+                "b233664de878fcc2"
+            ]
+        ]
+    },
+    {
+        "id": "1ac743048c955758",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "905e1728b6f1216f"
+            ]
+        ]
+    },
+    {
+        "id": "d310ffd406579e09",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "d5b3a4fdaebfe1a2"
+            ]
+        ]
+    },
+    {
+        "id": "5e02b3e8121d4ee2",
+        "type": "function",
+        "z": "56d2f109090e75bc",
+        "name": "checkFoodDog",
+        "func": "function handleMeal(mealName) {\n    var now       = msg.currentTime;\n    var mealTime  = msg[mealName];\n    var dog       = global.get(msg.dogID) || {};\n    dog.mealStates  = dog.mealStates || {};\n\n    // Check if it’s exactly meal time\n    if (\n        now.getHours()   === mealTime.getHours() &&\n        now.getMinutes() === mealTime.getMinutes()\n    ) {\n        // Already fed this meal?\n        if (dog.mealStates[mealName]) {\n            return null;\n        }\n\n        // Build payload\n        var amount = dog[mealName + 'Amount'];\n        msg.payload = {\n            dogName: msg.dogID,\n            meal:     mealName,\n            amount:   amount,\n            time:     mealTime\n        };\n\n        // Mark as fed for this meal\n        dog.mealStates[mealName] = true;\n        global.set(msg.dogID, dog);\n\n        \n        var foodRemaining = global.get(\"foodRemaining\") || 0;\n        foodRemaining -= amount;\n        global.set(\"foodRemaining\", foodRemaining);\n        \n\n        return msg;\n    }\n\n    // Reset meal state after the meal window passes\n    if (\n        dog.mealStates[mealName] &&\n        (\n            now.getDay()     > mealTime.getDay()   ||\n            now.getHours()   > mealTime.getHours() ||\n            now.getMinutes() > mealTime.getMinutes()\n        )\n    ) {\n        dog.mealStates[mealName] = false;\n        global.set(msg.dogID, dog);\n    }\n\n    return null;\n}\n\n// Try each meal in order\nreturn handleMeal(\"breakfast\")\n    || handleMeal(\"lunch\")\n    || handleMeal(\"dinner\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "3154f8b798a4d693"
             ]
         ]
     },
@@ -2035,222 +2048,6 @@
         ]
     },
     {
-        "id": "5d3d8ec86afdb7f0",
-        "type": "ui_dropdown",
-        "z": "0c1af66d0bae814e",
-        "name": "",
-        "label": "",
-        "tooltip": "",
-        "place": "Select Dog",
-        "group": "8e0e5b3c0d108c9f",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "multiple": true,
-        "options": [
-            {
-                "label": "Dog 1",
-                "value": "dog1data",
-                "type": "str"
-            },
-            {
-                "label": "Dog 2",
-                "value": "dog2data",
-                "type": "str"
-            },
-            {
-                "label": "Dog 3",
-                "value": "dog3data",
-                "type": "str"
-            },
-            {
-                "label": "Dog 4",
-                "value": "dog4data",
-                "type": "str"
-            },
-            {
-                "label": "Dog 5",
-                "value": "dog5data",
-                "type": "str"
-            },
-            {
-                "label": "Dog 6",
-                "value": "dog6data",
-                "type": "str"
-            },
-            {
-                "label": "Dog 7",
-                "value": "dog7data",
-                "type": "str"
-            },
-            {
-                "label": "Dog 8",
-                "value": "dog8data",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "snacks",
-        "topicType": "msg",
-        "className": "",
-        "x": 110,
-        "y": 420,
-        "wires": [
-            [
-                "633ca3ee8a722c8a"
-            ]
-        ]
-    },
-    {
-        "id": "c13851f6feab2ca8",
-        "type": "ui_button",
-        "z": "0c1af66d0bae814e",
-        "name": "",
-        "group": "8e0e5b3c0d108c9f",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Feed",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "feed",
-        "payloadType": "str",
-        "topic": "feed",
-        "topicType": "msg",
-        "x": 90,
-        "y": 580,
-        "wires": [
-            [
-                "788f0042997157e7"
-            ]
-        ]
-    },
-    {
-        "id": "198d6a47610d8be1",
-        "type": "ui_numeric",
-        "z": "0c1af66d0bae814e",
-        "name": "",
-        "label": "Amount of food",
-        "tooltip": "",
-        "group": "8e0e5b3c0d108c9f",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "wrap": false,
-        "passthru": true,
-        "topic": "snackAmount",
-        "topicType": "msg",
-        "format": "{{value}}g",
-        "min": "1",
-        "max": "200",
-        "step": "1",
-        "className": "",
-        "x": 120,
-        "y": 500,
-        "wires": [
-            [
-                "8dd6036e07e0bef1"
-            ]
-        ]
-    },
-    {
-        "id": "58c615ce8a61adf0",
-        "type": "mqtt out",
-        "z": "0c1af66d0bae814e",
-        "name": "",
-        "topic": "dogfeeder/receive",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "9c7a13b8e1f47d0a",
-        "x": 130,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "788f0042997157e7",
-        "type": "function",
-        "z": "0c1af66d0bae814e",
-        "name": "function 9",
-        "func": "\n\nif (msg.payload == \"feed\") {\n    msg.payload = {\n        \n        dogName: flow.get(\"dogsToFeed\"),\n        meal: \"snack\",\n\n        amount: flow.get(\"amount\"),\n        time: new Date()\n\n    };\n\n    return msg;\n} else {\n    return null;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 100,
-        "y": 620,
-        "wires": [
-            [
-                "58c615ce8a61adf0"
-            ]
-        ]
-    },
-    {
-        "id": "8dd6036e07e0bef1",
-        "type": "change",
-        "z": "0c1af66d0bae814e",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "amount",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 120,
-        "y": 540,
-        "wires": [
-            [
-                "c13851f6feab2ca8"
-            ]
-        ]
-    },
-    {
-        "id": "633ca3ee8a722c8a",
-        "type": "change",
-        "z": "0c1af66d0bae814e",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "dogsToFeed",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 140,
-        "y": 460,
-        "wires": [
-            [
-                "198d6a47610d8be1"
-            ]
-        ]
-    },
-    {
         "id": "4450bde2ca41b2e1",
         "type": "ui_form",
         "z": "0c1af66d0bae814e",
@@ -2807,6 +2604,392 @@
             [
                 "2688b15264fd3fcb",
                 "42c2a36bf1d4b43b"
+            ]
+        ]
+    },
+    {
+        "id": "5d3d8ec86afdb7f0",
+        "type": "ui_dropdown",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select Dog",
+        "group": "8e0e5b3c0d108c9f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": true,
+        "options": [
+            {
+                "label": "Dog 1",
+                "value": "dog1data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 2",
+                "value": "dog2data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 3",
+                "value": "dog3data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 4",
+                "value": "dog4data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 5",
+                "value": "dog5data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 6",
+                "value": "dog6data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 7",
+                "value": "dog7data",
+                "type": "str"
+            },
+            {
+                "label": "Dog 8",
+                "value": "dog8data",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "snacks",
+        "topicType": "msg",
+        "className": "",
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "633ca3ee8a722c8a"
+            ]
+        ]
+    },
+    {
+        "id": "c13851f6feab2ca8",
+        "type": "ui_button",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "group": "8e0e5b3c0d108c9f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Feed",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "feed",
+        "payloadType": "str",
+        "topic": "feed",
+        "topicType": "msg",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "788f0042997157e7"
+            ]
+        ]
+    },
+    {
+        "id": "198d6a47610d8be1",
+        "type": "ui_numeric",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "label": "Amount of food",
+        "tooltip": "",
+        "group": "8e0e5b3c0d108c9f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "snackAmount",
+        "topicType": "msg",
+        "format": "{{value}}g",
+        "min": "1",
+        "max": "200",
+        "step": "1",
+        "className": "",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "8dd6036e07e0bef1"
+            ]
+        ]
+    },
+    {
+        "id": "58c615ce8a61adf0",
+        "type": "mqtt out",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "topic": "dogfeeder/receive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9c7a13b8e1f47d0a",
+        "x": 130,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "788f0042997157e7",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 9",
+        "func": "\n\nif (msg.payload == \"feed\") {\n    msg.payload = {\n        \n        dogName: flow.get(\"dogsToFeed\"),\n        meal: \"snack\",\n\n        amount: flow.get(\"amount\"),\n        time: new Date()\n\n    };\n    var foodRemaining = global.get(\"foodRemaining\");\n    foodRemaining -= msg.payload.amount * flow.get(\"dogsToFeed\").length;\n    global.set(\"foodRemaining\", foodRemaining);\n\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "58c615ce8a61adf0"
+            ]
+        ]
+    },
+    {
+        "id": "8dd6036e07e0bef1",
+        "type": "change",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "amount",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "c13851f6feab2ca8"
+            ]
+        ]
+    },
+    {
+        "id": "633ca3ee8a722c8a",
+        "type": "change",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dogsToFeed",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 460,
+        "wires": [
+            [
+                "198d6a47610d8be1"
+            ]
+        ]
+    },
+    {
+        "id": "1c541cf8811a3568",
+        "type": "ui_form",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "label": "Log amount of food added",
+        "group": "8d45388b437f394e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Amount of food (g)",
+                "value": "foodAdded",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "foodAdded": ""
+        },
+        "payload": "",
+        "submit": "log",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "45dd44d3fa20ce05"
+            ]
+        ]
+    },
+    {
+        "id": "45dd44d3fa20ce05",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 18",
+        "func": "var foodRemaining = global.get(\"foodRemaining\") || 0;\nfoodRemaining+=msg.payload.foodAdded;\nglobal.set(\"foodRemaining\", foodRemaining);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ad6c25bec6acac0",
+        "type": "inject",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "foodRemaining",
+        "payloadType": "global",
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "d5e794bc867f2086",
+                "75c1b51587ee2a44"
+            ]
+        ]
+    },
+    {
+        "id": "0b69b755a04ee542",
+        "type": "ui_gauge",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "group": "8d45388b437f394e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Food Remaining",
+        "label": " grams",
+        "format": "{{value}} ",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#a20202",
+            "#e6e600",
+            "#3ccb3a"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 800,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "d5e794bc867f2086",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 19",
+        "func": "if (msg.payload <= 0) {\n    global.set(\"foodRemaining\", 0);\n    msg.payload = 0;\n} \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "0b69b755a04ee542"
+            ]
+        ]
+    },
+    {
+        "id": "a3033ff89ea9f23e",
+        "type": "e-mail",
+        "z": "0c1af66d0bae814e",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 770,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "75c1b51587ee2a44",
+        "type": "function",
+        "z": "0c1af66d0bae814e",
+        "name": "function 20",
+        "func": "if (msg.payload <= 100) {\n    msg.payload = \"Warning! Food Level Low. \"+msg.payload+\" grams left.\"\n    msg.topic = \"Food Level Low!\"\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 500,
+        "wires": [
+            [
+                "a3033ff89ea9f23e"
             ]
         ]
     }
