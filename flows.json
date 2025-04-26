@@ -114,7 +114,7 @@
         "tab": "3e3f35b6705b6738",
         "order": 1,
         "disp": true,
-        "width": 25,
+        "width": 6,
         "collapse": false,
         "className": ""
     },
@@ -2830,7 +2830,7 @@
         "name": "",
         "label": "Log amount of food added",
         "group": "8d45388b437f394e",
-        "order": 0,
+        "order": 2,
         "width": 0,
         "height": 0,
         "options": [
@@ -2903,8 +2903,7 @@
         "y": 460,
         "wires": [
             [
-                "d5e794bc867f2086",
-                "75c1b51587ee2a44"
+                "d5e794bc867f2086"
             ]
         ]
     },
@@ -2914,7 +2913,7 @@
         "z": "0c1af66d0bae814e",
         "name": "",
         "group": "8d45388b437f394e",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "wave",
@@ -2952,7 +2951,8 @@
         "y": 460,
         "wires": [
             [
-                "0b69b755a04ee542"
+                "0b69b755a04ee542",
+                "75c1b51587ee2a44"
             ]
         ]
     },
@@ -2969,8 +2969,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 770,
-        "y": 500,
+        "x": 1090,
+        "y": 480,
         "wires": []
     },
     {
@@ -2985,10 +2985,52 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 790,
         "y": 500,
         "wires": [
             [
+                "a9563add7960aa5f"
+            ]
+        ]
+    },
+    {
+        "id": "4547a5891046dde9",
+        "type": "ui_toast",
+        "z": "0c1af66d0bae814e",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1110,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9563add7960aa5f",
+        "type": "rbe",
+        "z": "0c1af66d0bae814e",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 930,
+        "y": 500,
+        "wires": [
+            [
+                "4547a5891046dde9",
                 "a3033ff89ea9f23e"
             ]
         ]
