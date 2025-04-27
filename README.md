@@ -1,5 +1,3 @@
-# The Big Dawg Feeder
-
 ## Arduino and Raspberry Pi Setup
 
 [Full project can be found on Printables](https://www.printables.com/model/1272698-the-big-dawg-feeder)
@@ -76,6 +74,18 @@ Enter a username and your email address, then press **Next**
 Choose a **Project name** and where it says repository, put this in: [https://github.com/Arduino-Pro/TheBigDawgFeeder](https://github.com/Arduino-Pro/TheBigDawgFeeder)
 
 Now press clone repository at the bottom right.
+
+To configure your MQTT out nodes, double click on one of them and add a new MQTT server
+
+![](https://static-file-service.macro.com/file/05b5aa78-b02b-4e82-9167-e53bfab5fdc3)
+
+![](https://static-file-service.macro.com/file/25c4a7ae-460d-41f3-bff5-5e6f46d39c97)
+
+Enter your Raspberry Pi IP address in the **Server** field, enter port 1883 and pick a name for your server. 
+
+Press **Add**
+
+**Make sure that every MQTT node has your server configured**
 
 ### Step 1.4 - Deploy
 
