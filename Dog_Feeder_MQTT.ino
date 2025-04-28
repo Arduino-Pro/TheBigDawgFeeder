@@ -13,7 +13,7 @@ const int enableDrivers = 7;         // Pin to enable stepper drivers
 bool driversEnabled = false;         // Flag to track driver state
 
 // MQTT configuration
-const char MQTT_ADDRESS[] = "192.168.101.200";
+const char MQTT_ADDRESS[] = "PUT YOURS HERE";
 const int MQTT_PORT = 1883;
 const char MQTT_CLIENT_ID[] = "dogfeeder";
 const char SUBSCRIBE_TOPIC[] = "dogfeeder/receive";
@@ -68,7 +68,7 @@ void setup() {
   pinMode(enableDrivers, OUTPUT);
   pinMode(zeroPositionPin, INPUT);
   digitalWrite(enableDrivers, LOW);     // Initially disable drivers
-  zeroStepper();                        // Zero Food Chute
+  // zeroStepper();                        // Zero Food Chute
 
   // Connect to WiFi
  while (WiFi.begin(SECRET_SSID, SECRET_PASSWORD) != WL_CONNECTED) {
@@ -134,19 +134,20 @@ void connectToMQTT() {
 
   mqtt.subscribe(SUBSCRIBE_TOPIC);
   Serial.println("MQTT connected and subscribed.");
+  zeroStepper();
   mqtt.loop();
 }
 
-// Convert dog name to corresponding angle (3x for gear ratio)
+// Convert dog name to corresponding angle
 int getDogAngle(const char* dogName) {
-  if (strcmp(dogName, "dog1data") == 0) return 0 * 3;
-  if (strcmp(dogName, "dog2data") == 0) return 45 * 3;
-  if (strcmp(dogName, "dog3data") == 0) return 90 * 3;
-  if (strcmp(dogName, "dog4data") == 0) return 135 * 3;
-  if (strcmp(dogName, "dog5data") == 0) return 180 * 3;
-  if (strcmp(dogName, "dog6data") == 0) return 225 * 3;
-  if (strcmp(dogName, "dog7data") == 0) return 270 * 3;
-  if (strcmp(dogName, "dog8data") == 0) return 325 * 3;
+  if (strcmp(dogName, "dog1data") == 0) return 0;
+  if (strcmp(dogName, "dog2data") == 0) return 45;
+  if (strcmp(dogName, "dog3data") == 0) return 90;
+  if (strcmp(dogName, "dog4data") == 0) return 135;
+  if (strcmp(dogName, "dog5data") == 0) return 180;
+  if (strcmp(dogName, "dog6data") == 0) return 225;
+  if (strcmp(dogName, "dog7data") == 0) return 270;
+  if (strcmp(dogName, "dog8data") == 0) return 315;
   return -1;
 }
 
