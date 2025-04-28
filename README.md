@@ -119,6 +119,7 @@ Download the sketch from the GitHub page and install all required libraries
 ```
 
 Head over to the secrets tab and fill in your **SSID**, **PASSWORD**
+
 Make sure to also fill in your **Raspberry Pi IP Address** in the **MQTT_ADDRESS** variable
 ### Step 2.2 - Upload
 
