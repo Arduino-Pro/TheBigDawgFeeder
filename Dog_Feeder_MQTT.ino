@@ -13,7 +13,7 @@ const int enableDrivers = 7;         // Pin to enable stepper drivers
 bool driversEnabled = false;         // Flag to track driver state
 
 // MQTT configuration
-const char MQTT_BROKER_ADRRESS[] = "SECRET_ADDRESS";
+const char MQTT_ADDRESS[] = "192.168.101.200";
 const int MQTT_PORT = 1883;
 const char MQTT_CLIENT_ID[] = "dogfeeder";
 const char SUBSCRIBE_TOPIC[] = "dogfeeder/receive";
@@ -65,30 +65,20 @@ void setup() {
   stepper2.setAcceleration(100);
 
   // Setup pin modes
+  pinMode(enableDrivers, OUTPUT);
   pinMode(zeroPositionPin, INPUT);
-  pinMode(enableDriver1, OUTPUT);
   digitalWrite(enableDrivers, LOW);     // Initially disable drivers
   zeroStepper();                        // Zero Food Chute
 
   // Connect to WiFi
-  while (WiFi.begin(SECRET_SSID, SECRET_PASSWORD) != WL_CONNECTED) {
+ while (WiFi.begin(SECRET_SSID, SECRET_PASSWORD) != WL_CONNECTED) {
     Serial.print("Connecting to WiFi...");
     delay(5000);
   }
   Serial.print("Connected! IP: ");
   Serial.println(WiFi.localIP());
 
-  // Setup MQTT
-  mqtt.begin(MQTT_BROKER_ADRRESS, MQTT_PORT, network);
-  mqtt.onMessage(messageHandler);
-
-  while (!mqtt.connect(MQTT_CLIENT_ID)) {
-    Serial.print(".");
-    delay(500);
-  }
-
-  mqtt.subscribe(SUBSCRIBE_TOPIC);
-  Serial.println("MQTT connected and subscribed.");
+  connectToMQTT();
 }
 
 void loop() {
@@ -133,27 +123,36 @@ void loop() {
   }
 }
 
+void connectToMQTT() {
+  mqtt.begin(MQTT_ADDRESS, MQTT_PORT, network);
+  mqtt.onMessage(messageHandler);
+
+  while (!mqtt.connect(MQTT_CLIENT_ID)) {
+    Serial.print(".");
+    delay(500);
+  }
+
+  mqtt.subscribe(SUBSCRIBE_TOPIC);
+  Serial.println("MQTT connected and subscribed.");
+  mqtt.loop();
+}
+
 // Convert dog name to corresponding angle (3x for gear ratio)
 int getDogAngle(const char* dogName) {
   if (strcmp(dogName, "dog1data") == 0) return 0 * 3;
-  if (strcmp(dogName, "dog2data") == 0) return 90 * 3;
-  if (strcmp(dogName, "dog3data") == 0) return 180 * 3;
-  if (strcmp(dogName, "dog4data") == 0) return 270 * 3;
-  if (strcmp(dogName, "dog5data") == 0) return 0 * 3;
-  if (strcmp(dogName, "dog6data") == 0) return 90 * 3;
-  if (strcmp(dogName, "dog7data") == 0) return 180 * 3;
-  if (strcmp(dogName, "dog8data") == 0) return 270 * 3;
+  if (strcmp(dogName, "dog2data") == 0) return 45 * 3;
+  if (strcmp(dogName, "dog3data") == 0) return 90 * 3;
+  if (strcmp(dogName, "dog4data") == 0) return 135 * 3;
+  if (strcmp(dogName, "dog5data") == 0) return 180 * 3;
+  if (strcmp(dogName, "dog6data") == 0) return 225 * 3;
+  if (strcmp(dogName, "dog7data") == 0) return 270 * 3;
+  if (strcmp(dogName, "dog8data") == 0) return 325 * 3;
   return -1;
 }
 
 // Handle incoming MQTT messages
 void messageHandler(String &topic, String &payload) {
   Serial.println(payload);
-  if (payload == "prime") {
-    stepper1.runSpeed(100);
-  } else if (payload == "endPrime") {
-    stepper1.stop();
-  } else {
   StaticJsonDocument<256> doc;
   DeserializationError error = deserializeJson(doc, payload);
   if (error) return;
@@ -171,15 +170,17 @@ void messageHandler(String &topic, String &payload) {
       int angle = getDogAngle(name);
       if (angle >= 0) enqueue(angle, amount);
     }
-  }
+  
 }
 }
 
-// Move the stepper motor to the zero (home) position
+// // Move the stepper motor to the zero (home) position
 void zeroStepper() {
-  stepper.setSpeed(100);
+  stepper2.setSpeed(100);
+  digitalWrite(enableDrivers, HIGH);
   while (digitalRead(zeroPositionPin) == LOW) {
     stepper2.runSpeed();
   }
-  stepper.setCurrentPosition(0);
+  digitalWrite(enableDrivers, LOW);
+  stepper2.setCurrentPosition(0);
 }
