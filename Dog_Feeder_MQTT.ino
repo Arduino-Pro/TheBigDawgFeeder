@@ -65,8 +65,8 @@ void setup() {
   stepper2.setAcceleration(100);
 
   // Setup pin modes
+  pinMode(enableDrivers, OUTPUT);
   pinMode(zeroPositionPin, INPUT);
-  pinMode(enableDriver1, OUTPUT);
   digitalWrite(enableDrivers, LOW);     // Initially disable drivers
   zeroStepper();                        // Zero Food Chute
 
@@ -149,11 +149,11 @@ int getDogAngle(const char* dogName) {
 // Handle incoming MQTT messages
 void messageHandler(String &topic, String &payload) {
   Serial.println(payload);
-  if (payload == "prime") {
-    stepper1.runSpeed(100);
-  } else if (payload == "endPrime") {
-    stepper1.stop();
-  } else {
+  // if (payload == "prime") {
+  //   stepper1.runSpeed(100);
+  // } else if (payload == "endPrime") {
+  //   stepper1.stop();
+  // } else {
   StaticJsonDocument<256> doc;
   DeserializationError error = deserializeJson(doc, payload);
   if (error) return;
@@ -171,15 +171,17 @@ void messageHandler(String &topic, String &payload) {
       int angle = getDogAngle(name);
       if (angle >= 0) enqueue(angle, amount);
     }
-  }
+  
 }
 }
 
-// Move the stepper motor to the zero (home) position
+// // Move the stepper motor to the zero (home) position
 void zeroStepper() {
-  stepper.setSpeed(100);
+  stepper2.setSpeed(100);
+  digitalWrite(enableDrivers, HIGH);
   while (digitalRead(zeroPositionPin) == LOW) {
     stepper2.runSpeed();
   }
-  stepper.setCurrentPosition(0);
+  digitalWrite(enableDrivers, LOW);
+  stepper2.setCurrentPosition(0);
 }
