@@ -71,24 +71,14 @@ void setup() {
   zeroStepper();                        // Zero Food Chute
 
   // Connect to WiFi
-  while (WiFi.begin(SECRET_SSID, SECRET_PASSWORD) != WL_CONNECTED) {
+ while (WiFi.begin(SECRET_SSID, SECRET_PASSWORD) != WL_CONNECTED) {
     Serial.print("Connecting to WiFi...");
     delay(5000);
   }
   Serial.print("Connected! IP: ");
   Serial.println(WiFi.localIP());
 
-  // Setup MQTT
-  mqtt.begin(MQTT_BROKER_ADRRESS, MQTT_PORT, network);
-  mqtt.onMessage(messageHandler);
-
-  while (!mqtt.connect(MQTT_CLIENT_ID)) {
-    Serial.print(".");
-    delay(500);
-  }
-
-  mqtt.subscribe(SUBSCRIBE_TOPIC);
-  Serial.println("MQTT connected and subscribed.");
+  connectToMQTT();
 }
 
 void loop() {
@@ -131,6 +121,19 @@ void loop() {
     digitalWrite(enableDrivers, LOW);
     driversEnabled = false;
   }
+}
+
+void connectToMQTT() {
+  mqtt.begin(MQTT_BROKER_ADRRESS, MQTT_PORT, network);
+  mqtt.onMessage(messageHandler);
+
+  while (!mqtt.connect(MQTT_CLIENT_ID)) {
+    Serial.print(".");
+    delay(500);
+  }
+
+  mqtt.subscribe(SUBSCRIBE_TOPIC);
+  Serial.println("MQTT connected and subscribed.");
 }
 
 // Convert dog name to corresponding angle (3x for gear ratio)
